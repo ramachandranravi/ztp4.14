@@ -3,16 +3,16 @@
 apiVersion: ran.openshift.io/v1
 kind: SiteConfig
 metadata:
-  name: "example-sno"
-  namespace: "example-sno"
+  name: "sno167"
+  namespace: "sno167"
 spec:
-  baseDomain: "example.com"
+  baseDomain: "workload.bos2.lab"
   pullSecretRef:
-    name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "openshift-4.10"
-  sshPublicKey: "ssh-rsa AAAA..."
+    name: "assisted-deployment-pull-secret-sno167"
+  clusterImageSetNameRef: "img4.14.9-x86-64-appsub"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDyhoIabaCD8Tx7W6ZVvaXGfaw3ZHkLSwgV0TS9d6l6B6PY9CQTd/7PXqWvzp8xqQX+NXDMmMZahUu95cxZ2JJBKgqQV8JTajY1LK8hIjBoxFw4CL1aEHe3Vvf26GjD29D7G0SMxvbgbbQlUYZ82cpNc/QDvnA36PVo6LCkJH0yfcdPzQyj8zXPpO28Kxf17yg6O4LJz/jmRLXIiP2UUmyfl/CCfI2vJ/TuSX5PD7gCn6Ccr8ewtyoaKQ8n8XUPAE7roYDbFJ9C6j4sMPcMUJ44O1Mx4gUwJl+lQ+iLNnZSvRaq9Iu91qbMxQo1/vtUjPW/dKNwGh20VzJZ2cKhpzFpL4brfkr3y/ywmeQVUaIuX3FwoKe4cpH3CoVID6lr8uz1fObNulTP0wZItSJbImVuwWf95qnHSJc5r2ClbMn1JATy/dP19OQxTLw1NSrd7x944Edud+yv42LV111zHYuckIlGEkuiwUbLlvodZXohj3LjQoK/XS12zLrdhY+ymPc= kni@ocp414-prov"
   clusters:
-  - clusterName: "example-sno"
+  - clusterName: "sno167"
     networkType: "OVNKubernetes"
     # installConfigOverrides is a generic way of passing install-config
     # parameters through the siteConfig.  The 'capabilities' field configures
@@ -37,14 +37,15 @@ spec:
       # Normally this should match or contain the cluster name so it only applies to a single cluster
       sites : "example-sno"
     clusterNetwork:
-      - cidr: 1001:1::/48
-        hostPrefix: 64
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
     machineNetwork:
-      - cidr: 1111:2222:3333:4444::/64
+      - cidr: 192.168.18.0/25
     serviceNetwork:
-      - 1001:2::/112
+      - 172.30.0.0/16
     additionalNTPSources:
-      - 1111:2222:3333:4444::2
+      - pool.ntp.org
+      - clock.corp.redhat.com
     # Initiates the cluster for workload partitioning. Setting specific reserved/isolated CPUSets is done via PolicyTemplate
     # please see Workload Partitioning Feature for a complete guide.
     cpuPartitioningMode: AllNodes
@@ -52,19 +53,20 @@ spec:
     #crTemplates:
     #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
     nodes:
-      - hostName: "example-node1.example.com"
+      - hostName: "sno167.workload.bos2.lab"
         role: "master"
         # Optionally; This can be used to configure desired BIOS setting on a host:
         #biosConfigRef:
         #  filePath: "example-hw.profile"
-        bmcAddress: "idrac-virtualmedia+https://[1111:2222:3333:4444::bbbb:1]/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://192.168.18.167/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
-          name: "example-node1-bmh-secret"
-        bootMACAddress: "AA:BB:CC:DD:EE:11"
+          name: "sno167-bmc-secret"
+        bootMACAddress: "50:7c:6f:53:e6:28"
+        cpuset: "0,2,30,32,34,36,62,64"
         # Use UEFISecureBoot to enable secure boot
         bootMode: "UEFI"
         rootDeviceHints:
-          wwn: "0x11111000000asd123"
+          deviceName: /dev/sdb
         # example of diskPartition below is used for image registry (check ImageRegistry.md for more details), but it's not limited to this use case
 #        diskPartition:
 #          - device: /dev/disk/by-id/wwn-0x11111000000asd123 # match rootDeviceHints
@@ -74,32 +76,32 @@ spec:
 #                start: 344844
         nodeNetwork:
           interfaces:
-            - name: eno1
-              macAddress: "AA:BB:CC:DD:EE:11"
+            - name: ens1f0
+              macAddress: "50:7c:6f:53:e6:28"
           config:
             interfaces:
               - name: eno1
                 type: ethernet
                 state: up
                 ipv4:
-                  enabled: false
-                ipv6:
                   enabled: true
+                ipv6:
+                  enabled: false
                   address:
                   # For SNO sites with static IP addresses, the node-specific,
                   # API and Ingress IPs should all be the same and configured on
                   # the interface
-                  - ip: 1111:2222:3333:4444::aaaa:1
-                    prefix-length: 64
+                  - ip: 192.168.18.49
+                    prefix-length: 25
             dns-resolver:
               config:
                 search:
-                - example.com
+                - workload.bos2.lab
                 server:
-                - 1111:2222:3333:4444::2
+                - 192.168.18.9
             routes:
               config:
-              - destination: ::/0
-                next-hop-interface: eno1
-                next-hop-address: 1111:2222:3333:4444::1
+              - destination: 0.0.0.0/0
+                next-hop-interface: ens1f0
+                next-hop-address: 192.168.18.1
                 table-id: 254
