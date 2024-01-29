@@ -35,7 +35,7 @@ spec:
       group-du-sno: ""
       # ../policygentemplates/example-sno-site.yaml will apply to all clusters with 'sites: "example-sno"'
       # Normally this should match or contain the cluster name so it only applies to a single cluster
-      sites : "example-sno"
+      sites : "sno"
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23
@@ -76,17 +76,15 @@ spec:
 #                start: 344844
         nodeNetwork:
           interfaces:
-            - name: ens1f0
+            - name: "ens1f0"
               macAddress: "50:7c:6f:53:e6:28"
           config:
             interfaces:
-              - name: eno1
+              - name: "ens1f0"
                 type: ethernet
                 state: up
                 ipv4:
                   enabled: true
-                ipv6:
-                  enabled: false
                   address:
                   # For SNO sites with static IP addresses, the node-specific,
                   # API and Ingress IPs should all be the same and configured on
