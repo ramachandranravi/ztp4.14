@@ -19,7 +19,7 @@ spec:
           - custom-manifests/
     filter:
         inclusionDefault: include
-        include: 
+        include:
         exclude:
           - 76-enable-crun-master.yaml
           - 77-enable-crun-standard.yaml
