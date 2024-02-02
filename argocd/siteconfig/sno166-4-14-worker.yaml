@@ -16,13 +16,11 @@ spec:
     extraManifests:
         searchPaths:
           - extra-manifest/
-          - custom-manifest/
+          - custom-manifests/
     filter:
         inclusionDefault: include
         include: 
-        exclude: 
-    # It is recommended to list the CRs to be excluded that are otherwise 
-    # included by default.
+        exclude:
           - 76-enable-crun-master.yaml
           - 77-enable-crun-standard.yaml
           - 78-enable-crun-ht100gb.yaml
