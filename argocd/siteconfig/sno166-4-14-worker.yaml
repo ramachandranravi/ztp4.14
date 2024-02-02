@@ -17,7 +17,7 @@ spec:
         searchPaths:
           - extra-manifest/
           - custom-manifest/
-      filter:
+    filter:
         inclusionDefault: include
         include: 
         exclude: 
