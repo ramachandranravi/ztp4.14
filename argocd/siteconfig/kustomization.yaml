@@ -3,6 +3,6 @@ kind: Kustomization
 
 generators:
 - sno166-4-14-worker.yaml
-- sno167-4-12-worker.yaml
+#- sno167-4-12-worker.yaml
 #- sno167-4-14-worker.yaml
 #- example-sno.yaml
