@@ -3,16 +3,16 @@
 apiVersion: ran.openshift.io/v1
 kind: SiteConfig
 metadata:
-  name: "sno167"
-  namespace: "sno167"
+  name: "sno166"
+  namespace: "sno166"
 spec:
   baseDomain: "workload.bos2.lab"
   pullSecretRef:
-    name: "assisted-deployment-pull-secret-sno167"
+    name: "assisted-deployment-pull-secret-sno166"
   clusterImageSetNameRef: "img4.14.2-x86-64-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDyhoIabaCD8Tx7W6ZVvaXGfaw3ZHkLSwgV0TS9d6l6B6PY9CQTd/7PXqWvzp8xqQX+NXDMmMZahUu95cxZ2JJBKgqQV8JTajY1LK8hIjBoxFw4CL1aEHe3Vvf26GjD29D7G0SMxvbgbbQlUYZ82cpNc/QDvnA36PVo6LCkJH0yfcdPzQyj8zXPpO28Kxf17yg6O4LJz/jmRLXIiP2UUmyfl/CCfI2vJ/TuSX5PD7gCn6Ccr8ewtyoaKQ8n8XUPAE7roYDbFJ9C6j4sMPcMUJ44O1Mx4gUwJl+lQ+iLNnZSvRaq9Iu91qbMxQo1/vtUjPW/dKNwGh20VzJZ2cKhpzFpL4brfkr3y/ywmeQVUaIuX3FwoKe4cpH3CoVID6lr8uz1fObNulTP0wZItSJbImVuwWf95qnHSJc5r2ClbMn1JATy/dP19OQxTLw1NSrd7x944Edud+yv42LV111zHYuckIlGEkuiwUbLlvodZXohj3LjQoK/XS12zLrdhY+ymPc= kni@ocp414-prov"
   clusters:
-  - clusterName: "sno167"
+  - clusterName: "sno166"
     networkType: "OVNKubernetes"
     # installConfigOverrides is a generic way of passing install-config
     # parameters through the siteConfig.  The 'capabilities' field configures
@@ -53,15 +53,15 @@ spec:
     #crTemplates:
     #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
     nodes:
-      - hostName: "sno167.workload.bos2.lab"
+      - hostName: "sno166.workload.bos2.lab"
         role: "master"
         # Optionally; This can be used to configure desired BIOS setting on a host:
         #biosConfigRef:
         #  filePath: "example-hw.profile"
-        bmcAddress: "idrac-virtualmedia://192.168.18.167/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://192.168.18.166/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
-          name: "sno167-bmc-secret"
-        bootMACAddress: "50:7c:6f:53:e6:28"
+          name: "sno166-bmc-secret"
+        bootMACAddress: "50:7c:6f:53:e8:34"
         cpuset: "0,2,30,32,34,36,62,64"
         # Use UEFISecureBoot to enable secure boot
         bootMode: "UEFI"
@@ -77,7 +77,7 @@ spec:
         nodeNetwork:
           interfaces:
             - name: "ens1f0"
-              macAddress: "50:7c:6f:53:e6:28"
+              macAddress: "50:7c:6f:53:e8:34"
           config:
             interfaces:
               - name: "ens1f0"
@@ -89,7 +89,7 @@ spec:
                   # For SNO sites with static IP addresses, the node-specific,
                   # API and Ingress IPs should all be the same and configured on
                   # the interface
-                  - ip: 192.168.18.49
+                  - ip: 192.168.18.48
                     prefix-length: 25
             dns-resolver:
               config:
