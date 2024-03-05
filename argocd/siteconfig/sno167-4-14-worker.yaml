@@ -9,7 +9,7 @@ spec:
   baseDomain: "workload.bos2.lab"
   pullSecretRef:
     name: "assisted-deployment-pull-secret-sno167"
-  clusterImageSetNameRef: "img4.14.10-x86-64-appsub"
+  clusterImageSetNameRef: "img4.14.12-x86-64-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDyhoIabaCD8Tx7W6ZVvaXGfaw3ZHkLSwgV0TS9d6l6B6PY9CQTd/7PXqWvzp8xqQX+NXDMmMZahUu95cxZ2JJBKgqQV8JTajY1LK8hIjBoxFw4CL1aEHe3Vvf26GjD29D7G0SMxvbgbbQlUYZ82cpNc/QDvnA36PVo6LCkJH0yfcdPzQyj8zXPpO28Kxf17yg6O4LJz/jmRLXIiP2UUmyfl/CCfI2vJ/TuSX5PD7gCn6Ccr8ewtyoaKQ8n8XUPAE7roYDbFJ9C6j4sMPcMUJ44O1Mx4gUwJl+lQ+iLNnZSvRaq9Iu91qbMxQo1/vtUjPW/dKNwGh20VzJZ2cKhpzFpL4brfkr3y/ywmeQVUaIuX3FwoKe4cpH3CoVID6lr8uz1fObNulTP0wZItSJbImVuwWf95qnHSJc5r2ClbMn1JATy/dP19OQxTLw1NSrd7x944Edud+yv42LV111zHYuckIlGEkuiwUbLlvodZXohj3LjQoK/XS12zLrdhY+ymPc= kni@ocp414-prov"
   clusters:
   - clusterName: "sno167"
