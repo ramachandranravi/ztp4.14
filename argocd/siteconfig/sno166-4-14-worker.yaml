@@ -103,7 +103,7 @@ spec:
                     prefix-length: 25
                 ethtool:
                   feature:
-                    gro: off
+                    rx-gro: false
             dns-resolver:
               config:
                 search:
