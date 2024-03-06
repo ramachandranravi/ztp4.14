@@ -101,6 +101,9 @@ spec:
                   # the interface
                   - ip: 192.168.18.48
                     prefix-length: 25
+                ethtool:
+                  feature:
+                    gro: off
             dns-resolver:
               config:
                 search:
