@@ -4,3 +4,5 @@ metadata:
   name: cluster
 spec:
   logLevel: Debug
+  operatorLogLevel: Normal
+  managementState: Managed
