@@ -1,0 +1,8 @@
+apiVersion: operator.openshift.io/v1
+kind: KubeAPIServer
+metadata:
+  name: cluster
+spec:
+  logLevel: Debug
+  operatorLogLevel: Normal
+  managementState: Managed

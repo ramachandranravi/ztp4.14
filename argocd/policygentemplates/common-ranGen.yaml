@@ -57,6 +57,9 @@ spec:
     #   policyName: "subscriptions-policy"
     - fileName: ReduceMonitoringFootprint.yaml
       policyName: "config-policy"
+      # Custom Resources
+    - fileName: custom-crs/80-kubeapiserver-debug.yaml
+      policyName: "config-policy"
     #
     # These CRs are in support of installation from a disconnected registry
     #
