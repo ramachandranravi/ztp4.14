@@ -3,6 +3,6 @@ kind: KubeAPIServer
 metadata:
   name: cluster
 spec:
-  logLevel: Normal
+  logLevel: Trace
   operatorLogLevel: Normal
   managementState: Managed
