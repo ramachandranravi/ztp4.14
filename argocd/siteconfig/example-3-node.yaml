@@ -59,7 +59,7 @@ spec:
     #biosConfigRef:
     #  filePath: "example-hw.profile"
     nodes:
-      - hostName: "cluster-node1.example.com"
+      - hostName: "cluster-node1.workload.bos2.lab"
         role: "master"
 #        nodeLabels:
 #          node-role.kubernetes.io/master-du:
@@ -104,7 +104,7 @@ spec:
                 next-hop-interface: ens1f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
-      - hostName: "cluster-node2.example.com"
+      - hostName: "cluster-node2.workload.bos2.lab"
         role: "master"
 #        nodeLabels:
 #          node-role.kubernetes.io/master-du:
@@ -149,7 +149,7 @@ spec:
                 next-hop-interface: ens1f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
-      - hostName: "cluster-node3.example.com"
+      - hostName: "cluster-node3.workload.bos2.lab"
         role: "master"
 #        nodeLabels:
 #          node-role.kubernetes.io/master-du:
