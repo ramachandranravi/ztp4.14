@@ -3,8 +3,8 @@
 apiVersion: ran.openshift.io/v1
 kind: SiteConfig
 metadata:
-  name: "mutltinode"
-  namespace: "mutltinode"
+  name: "3node-cluster"
+  namespace: "3node-cluster"
 spec:
   baseDomain: "workload.bos2.lab"
   pullSecretRef:
