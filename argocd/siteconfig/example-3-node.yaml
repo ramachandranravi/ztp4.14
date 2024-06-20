@@ -47,8 +47,8 @@ spec:
     serviceNetwork:
       - 172.30.0.0/16
     # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
-    apiVIP: 192.168.18.200
-    ingressVIP: 192.168.18.201
+    apiVIP: 192.168.18.50
+    ingressVIP: 192.168.18.51
     additionalNTPSources:
       - pool.ntp.org
       - clock.corp.redhat.com
