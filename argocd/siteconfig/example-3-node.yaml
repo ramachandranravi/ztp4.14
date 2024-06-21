@@ -73,10 +73,11 @@ spec:
         bmcCredentialsName:
           name: "cluster-node1-bmc-secret"
         bootMACAddress: "50:7c:6f:53:e8:34"
+        cpuset: "0,2,30,32,34,36,62,64"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sda
+          deviceName: /dev/sdb
         nodeNetwork:
           interfaces:
             - name: "ens1f0"
@@ -94,9 +95,6 @@ spec:
                   # the interface
                   - ip: 192.168.18.48
                     prefix-length: 25
-                ethtool:
-                  feature:
-                    rx-gro: false
             dns-resolver:
               config:
                 search:
@@ -118,10 +116,11 @@ spec:
         bmcCredentialsName:
           name: "cluster-node2-bmc-secret"
         bootMACAddress: "50:7c:6f:53:e6:28"
+        cpuset: "0,2,30,32,34,36,62,64"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sda
+          deviceName: /dev/sdb
         nodeNetwork:
           interfaces:
             - name: "ens1f0"
@@ -139,9 +138,6 @@ spec:
                   # the interface
                   - ip: 192.168.18.49
                     prefix-length: 25
-                ethtool:
-                  feature:
-                    rx-gro: false
             dns-resolver:
               config:
                 search:
@@ -163,10 +159,11 @@ spec:
         bmcCredentialsName:
           name: "cluster-node3-bmc-secret"
         bootMACAddress: "B4:83:51:0A:39:20"
+        cpuset: "0,2,30,32,34,36,62,64"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sda
+          deviceName: /dev/sdb
         nodeNetwork:
           interfaces:
             - name: "ens2f0"
@@ -184,9 +181,6 @@ spec:
                   # the interface
                   - ip: 192.168.18.50
                     prefix-length: 25
-                ethtool:
-                  feature:
-                    rx-gro: false
             dns-resolver:
               config:
                 search:
