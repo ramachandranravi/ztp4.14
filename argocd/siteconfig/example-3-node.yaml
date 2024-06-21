@@ -76,7 +76,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sdb
+          deviceName: /dev/sda
         nodeNetwork:
           interfaces:
             - name: "ens1f0"
@@ -121,7 +121,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sdb
+          deviceName: /dev/sda
         nodeNetwork:
           interfaces:
             - name: "ens1f0"
@@ -166,7 +166,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sdb
+          deviceName: /dev/sda
         nodeNetwork:
           interfaces:
             - name: "ens2f0"
