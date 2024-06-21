@@ -35,7 +35,7 @@ spec:
     # extraManifestPath: sno-extra-manifest
     clusterLabels:
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
-      # du-profile: "4.14"
+      du-profile: "4.14"
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
       # ../policygentemplates/common-ranGen.yaml will apply to all clusters with 'common: true'
       common: true
@@ -57,6 +57,9 @@ spec:
     additionalNTPSources:
       - pool.ntp.org
       - clock.corp.redhat.com
+    # Initiates the cluster for workload partitioning. Setting specific reserved/isolated CPUSets is done via PolicyTemplate
+    # please see Workload Partitioning Feature for a complete guide.
+    cpuPartitioningMode: None
     # Optionally; This can be used to override the KlusterletAddonConfig that is created for this cluster:
     #crTemplates:
     #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
