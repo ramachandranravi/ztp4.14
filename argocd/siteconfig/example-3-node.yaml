@@ -177,11 +177,11 @@ spec:
           deviceName: /dev/disk/by-path/pci-0000:43:00.0-nvme-1
         nodeNetwork:
           interfaces:
-            - name: "ens1f0"
+            - name: "ens2f0"
               macAddress: "B4:83:51:0A:39:20"
           config:
             interfaces:
-              - name: "ens1f0"
+              - name: "ens2f0"
                 type: ethernet
                 state: up
                 ipv4:
