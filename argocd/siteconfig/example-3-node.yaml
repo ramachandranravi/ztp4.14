@@ -190,7 +190,7 @@ spec:
                   # For SNO sites with static IP addresses, the node-specific,
                   # API and Ingress IPs should all be the same and configured on
                   # the interface
-                  - ip: 192.168.18.50
+                  - ip: 192.168.18.51
                     prefix-length: 25
                 ipv6:
                   enabled: false
