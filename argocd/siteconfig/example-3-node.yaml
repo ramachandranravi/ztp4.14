@@ -213,6 +213,12 @@ spec:
 #        nodeLabels:
 #          node-role.kubernetes.io/master-du:
 #          custom-label/parameter1: true
+        crSuppression:
+        - BareMetalHost
+        crAnnotations:
+          add:
+            BareMetalHost:
+              bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: true
         bmcAddress: "idrac-virtualmedia://192.168.18.170/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "worker-node1-bmc-secret"
