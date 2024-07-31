@@ -208,7 +208,7 @@ spec:
                 next-hop-interface: ens2f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
-     - hostName: "worker-node1.workload.bos2.lab"
+      - hostName: "worker-node1.workload.bos2.lab"
         role: "worker"
 #        nodeLabels:
 #          node-role.kubernetes.io/master-du:
