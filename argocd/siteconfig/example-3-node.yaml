@@ -213,8 +213,6 @@ spec:
 #        nodeLabels:
 #          node-role.kubernetes.io/master-du:
 #          custom-label/parameter1: true
-        crSuppression:
-        - BareMetalHost
         crAnnotations:
           add:
             BareMetalHost:
