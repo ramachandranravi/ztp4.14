@@ -208,3 +208,52 @@ spec:
                 next-hop-interface: ens2f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
+      - hostName: "worker-node1.workload.bos2.lab"
+        role: "worker"
+#        nodeLabels:
+#          node-role.kubernetes.io/master-du:
+#          custom-label/parameter1: true
+        bmcAddress: "idrac-virtualmedia://192.168.18.170/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "worker-node1-bmc-secret"
+        bootMACAddress: "B4:83:51:0C:0B:B8"
+        #bootMACAddress: "50:7C:6F:53:D4:1C"
+        # cpuset: "0,2,30,32,34,36,62,64"
+        # Use UEFISecureBoot to enable secure boot for this node
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: /dev/disk/by-path/pci-0000:43:00.0-nvme-1
+          # deviceName: /dev/nvme0n1
+        nodeNetwork:
+          interfaces:
+            - name: "ens2f0"
+              macAddress: "B4:83:51:0C:0B:B8"
+          config:
+            interfaces:
+              - name: "ens2f0"
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                  # For SNO sites with static IP addresses, the node-specific,
+                  # API and Ingress IPs should all be the same and configured on
+                  # the interface
+                  - ip: 192.168.18.63
+                    prefix-length: 25
+                ipv6:
+                  enabled: false
+                  dhcp: false
+                  autoconf: false
+            dns-resolver:
+              config:
+                search:
+                - workload.bos2.lab
+                server:
+                - 192.168.18.9
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-interface: ens2f0
+                next-hop-address: 192.168.18.1
+                table-id: 254
