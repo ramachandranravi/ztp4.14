@@ -1,3 +1,4 @@
 LogicalProc: Disabled
 SriovGlobalEnable: Disabled
-SubNumaCluster: Enabled
+SubNumaCluster: 2-Way
+CpuCrashLogControl: Enabled
