@@ -211,7 +211,7 @@ spec:
       - hostName: "worker-node1.workload.bos2.lab"
         biosConfigRef:
           filePath: "worker-node1-hw.profile"
-        ironicInspect: enabled
+#        ironicInspect: enabled
         role: "worker"
 #        nodeLabels:
 #          node-role.kubernetes.io/master-du:
