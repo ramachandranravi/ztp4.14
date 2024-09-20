@@ -77,7 +77,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sdb
+          deviceName: /dev/nvme0n1
         # example of diskPartition below is used for image registry (check ImageRegistry.md for more details), but it's not limited to this use case
 #        diskPartition:
 #          - device: /dev/disk/by-id/wwn-0x11111000000asd123 # match rootDeviceHints
