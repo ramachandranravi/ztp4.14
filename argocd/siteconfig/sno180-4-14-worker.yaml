@@ -65,6 +65,9 @@ spec:
     #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
     nodes:
       - hostName: "sno180.workload.bos2.lab"
+        biosConfigRef:
+          filePath: "bios/sno180.profile"
+        ironicInspect: enabled
         role: "master"
         # Optionally; This can be used to configure desired BIOS setting on a host:
         #biosConfigRef:
