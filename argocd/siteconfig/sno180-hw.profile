@@ -1,1 +1,2 @@
 MinProcIdlePkgState: NoState
+ProcTurbo: Enabled
