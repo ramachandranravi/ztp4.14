@@ -1,0 +1,12 @@
+MinProcIdlePkgState: NoState
+MinProcIdlePower: NoCStates
+ProcTurbo: Enabled
+PowerRegulator: OsControl
+CollabPowerControl: Enabled
+EnergyPerfBias: MaxPerf
+ProcHyperthreading: Enabled
+IntelProcVtd: Enabled
+ProcX2Apic: Enabled
+MemPatrolScrubbing: Disabled
+WorkloadProfile: Custom
+ProcessorPhysicalAddress: Default

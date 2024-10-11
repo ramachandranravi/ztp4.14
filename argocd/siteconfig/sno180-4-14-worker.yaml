@@ -66,8 +66,8 @@ spec:
     nodes:
       - hostName: "sno180.workload.bos2.lab"
         biosConfigRef:
-          filePath: "sno180-hw.profile"
-        ironicInspect: enabled
+          filePath: "bios/sno180-hw.profile"
+        # ironicInspect: enabled
         role: "master"
         # Optionally; This can be used to configure desired BIOS setting on a host:
         #biosConfigRef:
