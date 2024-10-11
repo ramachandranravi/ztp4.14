@@ -9,4 +9,4 @@ IntelProcVtd: Enabled
 ProcX2Apic: Enabled
 MemPatrolScrubbing: Disabled
 WorkloadProfile: Custom
-ProcessorPhysicalAddress: Default
+ProcVirtualization: Disabled
