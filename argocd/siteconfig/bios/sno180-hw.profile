@@ -1,6 +1,6 @@
 MinProcIdlePkgState: NoState
 MinProcIdlePower: NoCStates
-ProcTurbo: Enabled
+ProcTurbo: Disabled
 PowerRegulator: OsControl
 CollabPowerControl: Enabled
 EnergyPerfBias: MaxPerf
