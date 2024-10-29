@@ -6,8 +6,8 @@ metadata:
   name: "sno180"
   namespace: "sno180"
 spec:
-  biosConfigRef:
-    filePath: "bios/sno180-hw.profile"
+#  biosConfigRef:
+#    filePath: "bios/sno180-hw.profile"
   baseDomain: "workload.bos2.lab"
   pullSecretRef:
     name: "assisted-deployment-pull-secret-sno180"
@@ -34,7 +34,7 @@ spec:
     # components.
     # Notes:
     # - NodeTuning is needed for 4.13 and later, not for 4.12 and earlier
-    installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"marketplace\", \"Console\", \"Ingress\", \"NodeTuning\" ] }}"
+    installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"OperatorLifecycleManager\", \"marketplace\", \"Console\", \"Ingress\", \"NodeTuning\" ] }}"
     # It is strongly recommended to include crun manifests as part of the additional install-time manifests for 4.13+.
     # The crun manifests can be obtained from source-crs/optional-extra-manifest/ and added to the git repo ie.sno-extra-manifest.
     # extraManifestPath: sno-extra-manifest
@@ -69,7 +69,7 @@ spec:
       - hostName: "sno180.workload.bos2.lab"
         #biosConfigRef:
         #  filePath: "bios/sno180-hw.profile"
-        ironicInspect: enabled
+        #ironicInspect: enabled
         role: "master"
         # Optionally; This can be used to configure desired BIOS setting on a host:
         #biosConfigRef:
