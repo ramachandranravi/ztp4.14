@@ -9,7 +9,7 @@ data:
   config.yaml: |
     enableUserWorkload: true
     alertmanagerMain:
-      enabled: false
+      enabled: true
     telemeterClient:
       enabled: false
     prometheusK8s:
