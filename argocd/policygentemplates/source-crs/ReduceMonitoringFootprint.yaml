@@ -7,6 +7,7 @@ metadata:
     ran.openshift.io/ztp-deploy-wave: "1"
 data:
   config.yaml: |
+    enableUserWorkload: true
     alertmanagerMain:
       enabled: false
     telemeterClient:
