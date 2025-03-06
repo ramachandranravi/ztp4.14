@@ -72,7 +72,7 @@ spec:
         bmcAddress: "redfish-virtualmedia://192.168.18.186/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "sno186-bmc-secret"
-        bootMACAddress: "6c:fe:54:4d:82:50"
+        bootMACAddress: "b8:3f:d2:7e:af:6e"
         # cpuset: "0,2,30,32,34,36,62,64"
         # Use UEFISecureBoot to enable secure boot
         bootMode: "UEFI"
@@ -87,11 +87,11 @@ spec:
 #                start: 344844
         nodeNetwork:
           interfaces:
-            - name: "ens2f0"
-              macAddress: "6c:fe:54:4d:82:50"
+            - name: "ens1f0"
+              macAddress: "b8:3f:d2:7e:af:6e"
           config:
             interfaces:
-              - name: "ens2f0"
+              - name: "ens1f0"
                 type: ethernet
                 state: up
                 ipv4:
@@ -111,6 +111,6 @@ spec:
             routes:
               config:
               - destination: 0.0.0.0/0
-                next-hop-interface: ens2f0
+                next-hop-interface: ens1f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
