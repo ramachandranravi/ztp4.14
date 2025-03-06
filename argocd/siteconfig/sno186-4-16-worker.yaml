@@ -77,7 +77,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sdb
+          deviceName: /dev/disk/by-path/pci-0000:02:00.0-nvme-1
         # example of diskPartition below is used for image registry (check ImageRegistry.md for more details), but it's not limited to this use case
 #        diskPartition:
 #          - device: /dev/disk/by-id/wwn-0x11111000000asd123 # match rootDeviceHints
@@ -87,11 +87,11 @@ spec:
 #                start: 344844
         nodeNetwork:
           interfaces:
-            - name: "ens1f0"
+            - name: "ens14f0np0"
               macAddress: "b8:3f:d2:7e:af:6e"
           config:
             interfaces:
-              - name: "ens1f0"
+              - name: "ens14f0np0"
                 type: ethernet
                 state: up
                 ipv4:
@@ -111,6 +111,6 @@ spec:
             routes:
               config:
               - destination: 0.0.0.0/0
-                next-hop-interface: ens1f0
+                next-hop-interface: ens14f0np0
                 next-hop-address: 192.168.18.1
                 table-id: 254
