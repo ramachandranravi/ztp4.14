@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 generators:
-- sno166-4-14-worker.yaml
+#- sno166-4-14-worker.yaml
 #- sno167-4-12-worker.yaml
 #- sno167-4-14-worker.yaml
-- sno167-4-16-worker.yaml
+#- sno167-4-16-worker.yaml
 #- sno180-4-14-worker.yaml
 #- sno180-4-15-worker.yaml
 - sno180-4-16-worker.yaml
