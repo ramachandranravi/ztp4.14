@@ -5,4 +5,4 @@ metadata:
   name: nmstate
   annotations:
     ran.openshift.io/ztp-deploy-wave: "9"
-  
+spec: {} 
