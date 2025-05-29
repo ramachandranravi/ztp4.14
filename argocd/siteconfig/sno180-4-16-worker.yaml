@@ -94,6 +94,8 @@ spec:
           interfaces:
             - name: "ens1f0"
               macAddress: "b4:96:91:c6:59:b4"
+            - name: "ens1f0np0"
+              macAddress: "88:e9:a4:4e:2e:e8"
           config:
             interfaces:
               - name: "ens1f0"
@@ -104,11 +106,6 @@ spec:
                   address:
                   - ip: 192.168.18.33
                     prefix-length: 25
-          interfaces:
-            - name: "ens1f0np0"
-              macAddress: "88:e9:a4:4e:2e:e8"
-          config:
-            interfaces:
               - name: "ens1f0np0"
                 type: ethernet
                 state: up
