@@ -25,6 +25,7 @@ spec:
             - 76-enable-crun-master.yaml
             - 77-enable-crun-standard.yaml
             - 78-enable-crun-ht100gb.yaml
+            - 99-cgroupsv1.yaml
     #        - 80-kubeapiserver-debug.yaml
     networkType: "OVNKubernetes"
     # installConfigOverrides is a generic way of passing install-config
@@ -111,6 +112,37 @@ spec:
                 state: up
                 ipv4:
                   enabled: false
+              - name: "bond0"
+                type: bond
+                state: up
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
+                mtu: 9000
+                link-aggregation:
+                  mode: 802.3ad
+                  options:
+                    lacp_rate: slow
+                    miimon: 100
+                  port:
+                  - ens1f0np0
+              - description: signalling vlan
+                ipv4:
+                  address:
+                  - ip: 192.168.249.14
+                    prefix-length: 29
+                  dhcp: false
+                  enabled: true
+                ipv6:
+                  enabled: false
+                mtu: 9000
+                name: bond0.4018
+                state: up
+                type: vlan
+                vlan:
+                  base-iface: bond0
+                  id: 4018
             dns-resolver:
               config:
                 search:
