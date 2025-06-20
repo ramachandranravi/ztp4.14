@@ -16,3 +16,4 @@ spec:
     #  policyName: "custom-4.14-kubeapi-debug-policy"
     - fileName: Nmstate.yaml
       policyName: "config-policy"
+      remediationAction: enforce
