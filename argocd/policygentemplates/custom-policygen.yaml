@@ -11,6 +11,6 @@ spec:
     du-profile: "4.14"
   sourceFiles:
     # Create operators policies that will be installed in all clusters
-    - fileName: custom-crs/kubeapiserver-debug.yaml
-      remediationAction: inform
-      policyName: "custom-4.14-kubeapi-debug-policy"
+    #- fileName: custom-crs/kubeapiserver-debug.yaml
+    #  remediationAction: inform
+    #  policyName: "custom-4.14-kubeapi-debug-policy"
