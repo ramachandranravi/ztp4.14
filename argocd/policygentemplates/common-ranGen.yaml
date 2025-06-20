@@ -55,6 +55,14 @@ spec:
     #   policyName: "subscriptions-policy"
     # - fileName: BareMetalEventRelaySubscription.yaml
     #   policyName: "subscriptions-policy"
+    - fileName: NmstateOperatorStatus.yaml
+      policyName: "subscriptions-policy"
+    - fileName: NmstateOperGroup.yaml
+      policyName: "subscriptions-policy"
+    - fileName: NmstateSubscription.yaml
+      policyName: "subscriptions-policy"
+    - fileName: NmstateSubscriptionNS.yaml
+      policyName: "subscriptions-policy"
     - fileName: ReduceMonitoringFootprint.yaml
       policyName: "config-policy"
     #

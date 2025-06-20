@@ -155,11 +155,3 @@ spec:
                 next-hop-interface: ens1f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
-              - destination: 10.128.19.19/32
-                next-hop-interface: bond0.4018
-                next-hop-address: 192.168.249.9
-                table-id: 254
-              - destination: 192.160.34.10/32
-                next-hop-interface: bond0.4018
-                next-hop-address: 192.168.249.9
-                table-id: 254
