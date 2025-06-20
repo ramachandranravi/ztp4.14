@@ -63,14 +63,14 @@ spec:
       policyName: "subscriptions-policy"
     - fileName: NmstateSubscriptionNS.yaml
       policyName: "subscriptions-policy"
-    - fileName: Nmstate.yaml
-      policyName: "subscriptions-policy"
     - fileName: ReduceMonitoringFootprint.yaml
       policyName: "config-policy"
     #
     # These CRs are in support of installation from a disconnected registry
     #
     - fileName: OperatorHub.yaml
+      policyName: "config-policy"
+    - fileName: Nmstate.yaml
       policyName: "config-policy"
     #- fileName: DefaultCatsrc.yaml
     #  policyName: "config-policy"
