@@ -70,8 +70,9 @@ spec:
     #
     - fileName: OperatorHub.yaml
       policyName: "config-policy"
-    #- fileName: Nmstate.yaml
-    #  policyName: "config-policy"
+    - fileName: Nmstate.yaml
+      policyName: "config-policy"
+      remediationAction: enforce
     #- fileName: DefaultCatsrc.yaml
     #  policyName: "config-policy"
       # The Subscriptions all point to redhat-operators-disconnected. The OperatorHub CR

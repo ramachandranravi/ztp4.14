@@ -14,6 +14,6 @@ spec:
     #- fileName: custom-crs/kubeapiserver-debug.yaml
     #  remediationAction: inform
     #  policyName: "custom-4.14-kubeapi-debug-policy"
-    - fileName: Nmstate.yaml
-      policyName: "config-policy"
-      remediationAction: enforce
+    #- fileName: Nmstate.yaml
+    #  policyName: "config-policy"
+    #  remediationAction: enforce
