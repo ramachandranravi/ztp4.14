@@ -112,7 +112,7 @@ spec:
                 state: up
                 ipv4:
                   enabled: false
-              - name: "bond1"
+              - name: "bond0"
                 type: bond
                 state: up
                 ipv4:
@@ -127,6 +127,22 @@ spec:
                     miimon: 100
                   port:
                   - ens1f0np0
+              - description: signalling vlan
+                ipv4:
+                  address:
+                  - ip: 192.168.249.14
+                    prefix-length: 29
+                  dhcp: false
+                  enabled: true
+                ipv6:
+                  enabled: false
+                mtu: 9000
+                name: bond0.4018
+                state: up
+                type: vlan
+                vlan:
+                  base-iface: bond0
+                  id: 4018
             dns-resolver:
               config:
                 search:
