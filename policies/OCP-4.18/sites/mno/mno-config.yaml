@@ -1,0 +1,24 @@
+
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "mno-config"
+  namespace: "ztp-site"
+spec:
+  bindingRules:
+    sites: "mno"
+    version: OCP-4.18
+  sourceFiles:
+    - fileName: custom/LabelNode.yaml
+      policyName: config
+      metadata:
+        name: worker-node1.workload.bos2.lab
+        labels:
+          node-role.kubernetes.io/standard: ""
+    - fileName: custom/LabelNode.yaml
+      policyName: config
+      metadata:
+        name: worker-node2.workload.bos2.lab
+        labels:
+          node-role.kubernetes.io/standard: ""
