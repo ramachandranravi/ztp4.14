@@ -49,10 +49,6 @@ spec:
         priority: 10
         resourceName: du_mh
 #   --- START of source CRs needed for configuring OADP operator for SNO Image Based Upgrade ---
-#   - fileName: OadpSecret.yaml
-#     policyName: "config-policy"
-#     data:
-#       cloud: W2RlZmF1bHRdCmF3c19hY2Nlc3Nfa2V5X2lkPVdicktaSFpFOXZGWEVFemo2RU12CmF3c19zZWNyZXRfYWNjZXNzX2tleT1RRDNmRVZMNzVsOWJpSWswYW9PdlRSc2diN01ZRUlnZmF5bzVzRnlmCg==
 #   - fileName: OadpDataProtectionApplication.yaml
 #     policyName: "config-policy"
 #     spec:
