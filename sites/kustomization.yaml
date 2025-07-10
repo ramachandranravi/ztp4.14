@@ -19,4 +19,4 @@ generators:
 #- sno186-4-16-worker.yaml
 #- sno187-4-16-worker.yaml
 #- example-sno.yaml
-#- compactcluster.yaml
+- compactcluster.yaml
