@@ -37,16 +37,10 @@ spec:
     # The crun manifests can be obtained from source-crs/optional-extra-manifest/ and added to the git repo ie.sno-extra-manifest.
     # extraManifestPath: sno-extra-manifest
     clusterLabels:
-      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
-      du-profile: "4.14"
-      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
-      # ../policygentemplates/common-ranGen.yaml will apply to all clusters with 'common: true'
-      common: true
-      # ../policygentemplates/group-du-sno-ranGen.yaml will apply to all clusters with 'group-du-sno: ""'
-      # group-du-sno: ""
-      # ../policygentemplates/example-sno-site.yaml will apply to all clusters with 'sites: "example-sno"'
-      # Normally this should match or contain the cluster name so it only applies to a single cluster
-      sites : "sno"
+        common: true
+        sites: "sno183"
+        group: "sno"
+        version: "OCP-4.18"
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23
