@@ -9,7 +9,7 @@ spec:
   baseDomain: "example.com"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "openshift-4.10"
+  clusterImageSetNameRef: "openshift-4.16"
   sshPublicKey: "ssh-rsa AAAA..."
   clusters:
   - clusterName: "example-3node"
@@ -19,7 +19,7 @@ spec:
     # extraManifestPath: 3node-extra-manifest
     clusterLabels:
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
-      du-profile: "4.14"
+      du-profile: "latest"
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
       # ../policygentemplates/common-ranGen.yaml will apply to all clusters with 'common: true'
       common: true
@@ -54,10 +54,10 @@ spec:
         bmcCredentialsName:
           name: "example-node1-bmh-secret"
         bootMACAddress: "AA:BB:CC:DD:EE:11"
-        # Use UEFISecureBoot to enable secure boot for this node
-        bootMode: "UEFI"
+        # Use UEFISecureBoot to enable secure boot for this node, UEFI to disable 
+        bootMode: "UEFISecureBoot"
         rootDeviceHints:
-          hctl: '0:1:0'
+          deviceName: "/dev/disk/by-path/pci-0000:01:00.0-scsi-0:2:0:0"
         nodeNetwork:
           interfaces:
             - name: eno1
@@ -92,9 +92,10 @@ spec:
         bmcCredentialsName:
           name: "example-node2-bmh-secret"
         bootMACAddress: "AA:BB:CC:DD:EE:22"
-        bootMode: "UEFI"
+        # Use UEFISecureBoot to enable secure boot for this node, UEFI to disable 
+        bootMode: "UEFISecureBoot"
         rootDeviceHints:
-          hctl: '0:1:0'
+          deviceName: "/dev/disk/by-path/pci-0000:01:00.0-scsi-0:2:0:0"
         nodeNetwork:
           interfaces:
             - name: eno1
@@ -129,9 +130,10 @@ spec:
         bmcCredentialsName:
           name: "example-node3-bmh-secret"
         bootMACAddress: "AA:BB:CC:DD:EE:33"
-        bootMode: "UEFI"
+        # Use UEFISecureBoot to enable secure boot for this node, UEFI to disable 
+        bootMode: "UEFISecureBoot"
         rootDeviceHints:
-          hctl: '0:1:0'
+          deviceName: "/dev/disk/by-path/pci-0000:01:00.0-scsi-0:2:0:0"
         nodeNetwork:
           interfaces:
             - name: eno1

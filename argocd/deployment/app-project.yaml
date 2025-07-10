@@ -5,6 +5,8 @@ metadata:
   namespace: openshift-gitops
 spec:
   clusterResourceWhitelist:
+  - group: 'hive.openshift.io'
+    kind: ClusterImageSet
   - group: 'cluster.open-cluster-management.io'
     kind: ManagedCluster
   - group: ''
@@ -37,5 +39,7 @@ spec:
     kind: ManagedCluster
   - group: 'ran.openshift.io'
     kind: SiteConfig
+  - group: 'siteconfig.open-cluster-management.io'
+    kind: ClusterInstance
   sourceRepos:
   - '*'

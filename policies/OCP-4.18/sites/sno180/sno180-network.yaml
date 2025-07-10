@@ -1,0 +1,51 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "sno180-network"
+  namespace: "ztp-site"
+spec:
+  bindingRules:
+    sites: "sno180"
+    version: OCP-4.18
+  remediationAction: inform
+  sourceFiles:
+
+    - fileName: custom/nmstate/nodeNetworkConfigurationPolicy.yaml
+      policyName: config-network
+      metadata:
+        name: for-sno180-macvlan
+      annotations:
+        ran.openshift.io/ztp-deploy-wave: "10"
+      spec:
+        nodeSelector:
+          kubernetes.io/hostname: sno180.workload.bos2.lab
+        desiredState:
+          interfaces:
+            - &bond1-4018
+              name: bond1.4018
+              description: macvlan
+              ipv4:
+                address:
+                  - ip: 192.168.249.14
+                    prefix-length: 29
+                dhcp: false
+                enabled: true
+              ipv6:
+                address: []
+                autoconf: false
+                dhcp: false
+                enabled: false
+              mtu: 9000
+              state: up
+              type: vlan
+              vlan:
+                base-iface: bond1
+                id: 4018
+          routes: &routes
+            config:
+              - destination: 172.17.199.1/32
+                next-hop-address: 192.168.249.9
+                next-hop-interface: bond1.4018
+                metric: 400
+                table-id: 254
