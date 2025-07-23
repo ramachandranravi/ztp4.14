@@ -44,7 +44,7 @@ spec:
     additionalNTPSources:
       - pool.ntp.org
       - clock.corp.redhat.com
-    cpuPartitioningMode: None
+    cpuPartitioningMode: AllNodes
     nodes:
       - hostName: "sno180.workload.bos2.lab"
         #biosConfigRef:
