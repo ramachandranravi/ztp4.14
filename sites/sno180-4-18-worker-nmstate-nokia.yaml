@@ -28,28 +28,12 @@ spec:
             - 99-cgroupsv1.yaml
     #        - 80-kubeapiserver-debug.yaml
     networkType: "OVNKubernetes"
-    # installConfigOverrides is a generic way of passing install-config
-    # parameters through the siteConfig.  The 'capabilities' field configures
-    # the composable openshift feature.  In this 'capabilities' setting, we
-    # remove all but the marketplace component from the optional set of
-    # components.
-    # Notes:
-    # - NodeTuning is needed for 4.13 and later, not for 4.12 and earlier
     installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"OperatorLifecycleManager\", \"marketplace\", \"Console\", \"Ingress\", \"NodeTuning\" ] }}"
-    # It is strongly recommended to include crun manifests as part of the additional install-time manifests for 4.13+.
-    # The crun manifests can be obtained from source-crs/optional-extra-manifest/ and added to the git repo ie.sno-extra-manifest.
-    # extraManifestPath: sno-extra-manifest
     clusterLabels:
-      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
-      du-profile: "4.14"
-      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
-      # ../policygentemplates/common-ranGen.yaml will apply to all clusters with 'common: true'
-      common: true
-      # ../policygentemplates/group-du-sno-ranGen.yaml will apply to all clusters with 'group-du-sno: ""'
-      # group-du-sno: ""
-      # ../policygentemplates/example-sno-site.yaml will apply to all clusters with 'sites: "example-sno"'
-      # Normally this should match or contain the cluster name so it only applies to a single cluster
-      sites : "sno"
+        common: true
+        sites: "sno180"
+        group: "sno"
+        version: "OCP-4.18"
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23
@@ -60,37 +44,17 @@ spec:
     additionalNTPSources:
       - pool.ntp.org
       - clock.corp.redhat.com
-    # Initiates the cluster for workload partitioning. Setting specific reserved/isolated CPUSets is done via PolicyTemplate
-    # please see Workload Partitioning Feature for a complete guide.
     cpuPartitioningMode: None
-    # Optionally; This can be used to override the KlusterletAddonConfig that is created for this cluster:
-    #crTemplates:
-    #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
     nodes:
       - hostName: "sno180.workload.bos2.lab"
-        #biosConfigRef:
-        #  filePath: "bios/sno180-hw.profile"
-        #ironicInspect: enabled
         role: "master"
-        # Optionally; This can be used to configure desired BIOS setting on a host:
-        #biosConfigRef:
-        #  filePath: "example-hw.profile"
         bmcAddress: "redfish-virtualmedia://192.168.18.180/redfish/v1/Systems/1"
         bmcCredentialsName:
           name: "sno180-bmc-secret"
         bootMACAddress: "b4:96:91:c6:59:b4"
-        # cpuset: "0,2,30,32,34,36,62,64"
-        # Use UEFISecureBoot to enable secure boot
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sdb
-        # example of diskPartition below is used for image registry (check ImageRegistry.md for more details), but it's not limited to this use case
-#        diskPartition:
-#          - device: /dev/disk/by-id/wwn-0x11111000000asd123 # match rootDeviceHints
-#            partitions:
-#              - mount_point: /var/imageregistry
-#                size: 102500
-#                start: 344844
         nodeNetwork:
           interfaces:
             - name: "ens1f0"
@@ -155,3 +119,13 @@ spec:
                 next-hop-interface: ens1f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
+              - destination: 192.168.40.153/32
+                next-hop-interface: bond0.4018
+                next-hop-address: 192.168.18.1
+                table-id: 254              
+            route-rules:
+              config:
+              - ip-to: 192.168.249.0/24
+                ip-from: 192.168.10.10/32
+                priority: 100
+                route-table: 254
