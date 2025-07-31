@@ -121,11 +121,11 @@ spec:
                 table-id: 254
               - destination: 192.168.40.153/32
                 next-hop-interface: bond0.4018
-                next-hop-address: 192.168.18.1
+                next-hop-address: 192.168.249.9
                 table-id: 254              
             route-rules:
               config:
-              - ip-to: 192.168.249.0/24
+              - ip-to: 192.168.249.8/29
                 ip-from: 192.168.10.10/32
                 priority: 100
                 route-table: 254
