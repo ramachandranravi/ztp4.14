@@ -18,14 +18,14 @@ spec:
     extraManifests:
         searchPaths:
           - extra-manifest/
-          - custom-manifests/
-        filter:
-          inclusionDefault: include
-          exclude:
-            - 76-enable-crun-master.yaml
-            - 77-enable-crun-standard.yaml
-            - 78-enable-crun-ht100gb.yaml
-    #        - 80-kubeapiserver-debug.yaml
+  #        - custom-manifests/
+  #      filter:
+  #        inclusionDefault: include
+  #        exclude:
+  #          - 76-enable-crun-master.yaml
+  #          - 77-enable-crun-standard.yaml
+  #          - 78-enable-crun-ht100gb.yaml
+  #          - 80-kubeapiserver-debug.yaml
     networkType: "OVNKubernetes"
     # installConfigOverrides is a generic way of passing install-config
     # parameters through the siteConfig.  The 'capabilities' field configures
