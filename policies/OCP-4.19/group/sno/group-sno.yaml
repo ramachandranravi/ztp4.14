@@ -1,0 +1,46 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "group-sno"
+  namespace: ztp-group
+spec:
+  bindingRules:
+    group: sno
+    version: OCP-4.19
+  remediationAction: inform
+  sourceFiles:
+  - fileName: custom/system-reserved-memory.yaml
+    policyName: config
+    metadata:
+      name: autosizing-master
+    spec:
+      autoSizingReserved: true
+      machineConfigPoolSelector:
+        matchLabels:
+          pools.operator.machineconfiguration.openshift.io/master: ""
+  - fileName: ref/MachineConfigGeneric.yaml
+    policyName: config
+    complianceType: mustonlyhave
+    metadata:
+      name: 40-load-kernel-modules-master
+      annotations:
+        ran.openshift.io/ztp-deploy-wave: "10"
+      labels:
+        machineconfiguration.openshift.io/role: master
+    spec:
+      config:
+        ignition:
+          version: 3.2.0
+        storage:
+          files:
+          - contents:
+              source: data:,
+            mode: 420
+            overwrite: true
+            path: /etc/modprobe.d/kernel-blacklist.conf
+          - contents:
+              source: data:text/plain;charset=utf-8;base64,aXBfZ3JlCmlwNl90YWJsZXMKaXA2dF9SRUpFQ1QKaXA2dGFibGVfZmlsdGVyCmlwNnRhYmxlX21hbmdsZQppcDZ0YWJsZV9uYXQKaXB0YWJsZV9maWx0ZXIKaXB0YWJsZV9tYW5nbGUKaXB0YWJsZV9uYXQKeHRfbXVsdGlwb3J0Cnh0X293bmVyCnh0X1JFRElSRUNUCnh0X3N0YXRpc3RpYwp4dF9UQ1BNU1MKeHRfYnBmCnh0X25hdApuZl9uYXQKbmZfY29ubnRyYWNrCmJyX25ldGZpbHRlcgpicmlkZ2UKaXB0YWJsZV9yYXcKaXA2dGFibGVfcmF3Cg==
+            mode: 420
+            overwrite: true
+            path: /etc/modules-load.d/kernel-load.conf
