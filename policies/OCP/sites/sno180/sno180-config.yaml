@@ -8,7 +8,7 @@ metadata:
 spec:
   bindingRules:
     sites: "sno180"
-    version: OCP-4.18
+    version: OCP
   sourceFiles:
     - fileName: custom/LabelNode.yaml
       policyName: config
