@@ -51,7 +51,7 @@ spec:
         #  filePath: "bios/sno163-hw.profile"
         #ironicInspect: enabled
         role: "master"
-        bmcAddress: "idrac-virtualmedia://192.168.18.166/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://192.168.18.163/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno163-bmc-secret"
         bootMACAddress: "b4:96:91:c8:a5:14"
