@@ -446,7 +446,7 @@ spec:
         bootMACAddress: "30:3E:A7:04:F8:80"
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/sda
+          deviceName: /dev/disk/by-id/wwn-0x6f4ee080573f0400650ca7279d72acdf
         nodeNetwork:
           interfaces:
             - name: "eno12399"

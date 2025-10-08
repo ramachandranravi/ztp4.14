@@ -1,0 +1,83 @@
+# example-node1-bmh-secret & assisted-deployment-pull-secret need to be created under same namespace example-sno
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "sno200"
+  namespace: "sno200"
+spec:
+#  biosConfigRef:
+#    filePath: "bios/sno200-hw.profile"
+  baseDomain: "workload.bos2.lab"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret-sno200"
+  clusterImageSetNameRef: "img4.19.7-x86-64-appsub"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDyhoIabaCD8Tx7W6ZVvaXGfaw3ZHkLSwgV0TS9d6l6B6PY9CQTd/7PXqWvzp8xqQX+NXDMmMZahUu95cxZ2JJBKgqQV8JTajY1LK8hIjBoxFw4CL1aEHe3Vvf26GjD29D7G0SMxvbgbbQlUYZ82cpNc/QDvnA36PVo6LCkJH0yfcdPzQyj8zXPpO28Kxf17yg6O4LJz/jmRLXIiP2UUmyfl/CCfI2vJ/TuSX5PD7gCn6Ccr8ewtyoaKQ8n8XUPAE7roYDbFJ9C6j4sMPcMUJ44O1Mx4gUwJl+lQ+iLNnZSvRaq9Iu91qbMxQo1/vtUjPW/dKNwGh20VzJZ2cKhpzFpL4brfkr3y/ywmeQVUaIuX3FwoKe4cpH3CoVID6lr8uz1fObNulTP0wZItSJbImVuwWf95qnHSJc5r2ClbMn1JATy/dP19OQxTLw1NSrd7x944Edud+yv42LV111zHYuckIlGEkuiwUbLlvodZXohj3LjQoK/XS12zLrdhY+ymPc= kni@ocp414-prov"
+  clusters:
+  - clusterName: "sno200"
+    extraManifests:
+        searchPaths:
+          - extra-manifest/
+#          - custom-manifests/
+#        filter:
+#          inclusionDefault: include
+#          exclude:
+#            - 76-enable-crun-master.yaml
+#            - 77-enable-crun-standard.yaml
+#            - 78-enable-crun-ht100gb.yaml
+#            - 99-cgroupsv1.yaml
+    #        - 80-kubeapiserver-debug.yaml
+    networkType: "OVNKubernetes"
+    installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"OperatorLifecycleManager\", \"marketplace\", \"Console\", \"Ingress\", \"NodeTuning\" ] }}"
+    clusterLabels:
+        common: true
+        sites: "sno200"
+        group: "sno"
+        version: "OCP-4.18"
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 192.168.18.0/25
+    serviceNetwork:
+      - 172.30.0.0/16
+    additionalNTPSources:
+      - pool.ntp.org
+      - clock.corp.redhat.com
+    cpuPartitioningMode: AllNodes
+    nodes:
+      - hostName: "sno200.workload.bos2.lab"
+        role: "master"
+        bmcAddress: "idrac-virtualmedia://192.168.18.200/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "sno200-bmc-secret"
+        bootMACAddress: "30:3E:A7:04:F8:80"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: /dev/disk/by-id/wwn-0x6f4ee080573f0400650ca7279d72acdf
+        nodeNetwork:
+          interfaces:
+            - name: "eno12399"
+              macAddress: "30:3E:A7:04:F8:80"
+          config:
+            interfaces:
+              - name: "eno12399"
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                  - ip: 192.168.18.28
+                    prefix-length: 25
+            dns-resolver:
+              config:
+                search:
+                - workload.bos2.lab
+                server:
+                - 192.168.18.9
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno12399
+                next-hop-address: 192.168.18.1
+                table-id: 254
