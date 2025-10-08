@@ -47,24 +47,21 @@ spec:
     cpuPartitioningMode: AllNodes
     nodes:
       - hostName: "sno200.workload.bos2.lab"
-        #biosConfigRef:
-        #  filePath: "bios/sno200-hw.profile"
-        #ironicInspect: enabled
         role: "master"
         bmcAddress: "idrac-virtualmedia://192.168.18.200/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno200-bmc-secret"
-        bootMACAddress: "b4:96:91:c8:a5:14"
+        bootMACAddress: "30:3E:A7:04:F8:80"
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: /dev/sdb
         nodeNetwork:
           interfaces:
-            - name: "ens1f0"
-              macAddress: "b4:96:91:c8:a5:14"
+            - name: "eno12399"
+              macAddress: "30:3E:A7:04:F8:80"
           config:
             interfaces:
-              - name: "ens1f0"
+              - name: "eno12399"
                 type: ethernet
                 state: up
                 ipv4:
@@ -84,6 +81,6 @@ spec:
             routes:
               config:
               - destination: 0.0.0.0/0
-                next-hop-interface: ens1f0
+                next-hop-interface: eno12399
                 next-hop-address: 192.168.18.1
                 table-id: 254
