@@ -1,0 +1,18 @@
+
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "sno200-config"
+  namespace: "ztp-site"
+spec:
+  bindingRules:
+    sites: "sno200"
+    version: OCP
+  sourceFiles:
+    - fileName: custom/LabelNode.yaml
+      policyName: config
+      metadata:
+        name: sno200.workload.bos2.lab
+        labels:
+          node-role.kubernetes.io/standard: ""

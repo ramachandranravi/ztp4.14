@@ -8,4 +8,5 @@ generators:
 #- sites/sno180/sno180-network.yaml
 - sites/sno183/sno183-config.yaml
 - sites/sno185/sno185-config.yaml
+- sites/sno200/sno200-config.yaml
 - sites/mno/mno-config.yaml
