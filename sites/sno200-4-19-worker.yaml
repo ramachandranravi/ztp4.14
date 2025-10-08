@@ -6,6 +6,8 @@ metadata:
   name: "sno200"
   namespace: "sno200"
 spec:
+#  biosConfigRef:
+#    filePath: "bios/sno200-hw.profile"
   baseDomain: "workload.bos2.lab"
   pullSecretRef:
     name: "assisted-deployment-pull-secret-sno200"
@@ -45,26 +47,32 @@ spec:
     cpuPartitioningMode: AllNodes
     nodes:
       - hostName: "sno200.workload.bos2.lab"
+        #biosConfigRef:
+        #  filePath: "bios/sno200-hw.profile"
+        #ironicInspect: enabled
         role: "master"
         bmcAddress: "idrac-virtualmedia://192.168.18.200/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno200-bmc-secret"
-        bootMACAddress: "30:3E:A7:04:F8:80"
+        bootMACAddress: "b4:96:91:c8:a5:14"
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: /dev/disk/by-id/wwn-0x6f4ee080573f0400650ca7279d72acdf
+          deviceName: /dev/sdb
         nodeNetwork:
           interfaces:
-            - name: "eno12399"
-              macAddress: "30:3E:A7:04:F8:80"
+            - name: "ens1f0"
+              macAddress: "b4:96:91:c8:a5:14"
           config:
             interfaces:
-              - name: "eno12399"
+              - name: "ens1f0"
                 type: ethernet
                 state: up
                 ipv4:
                   enabled: true
                   address:
+                  # For SNO sites with static IP addresses, the node-specific,
+                  # API and Ingress IPs should all be the same and configured on
+                  # the interface
                   - ip: 192.168.18.28
                     prefix-length: 25
             dns-resolver:
@@ -76,6 +84,6 @@ spec:
             routes:
               config:
               - destination: 0.0.0.0/0
-                next-hop-interface: eno12399
+                next-hop-interface: ens1f0
                 next-hop-address: 192.168.18.1
                 table-id: 254
