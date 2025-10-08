@@ -6,8 +6,6 @@ metadata:
   name: "sno200"
   namespace: "sno200"
 spec:
-#  biosConfigRef:
-#    filePath: "bios/sno200-hw.profile"
   baseDomain: "workload.bos2.lab"
   pullSecretRef:
     name: "assisted-deployment-pull-secret-sno200"
