@@ -364,7 +364,7 @@ spec:
         role: "worker"
         bmcAddress: "idrac-virtualmedia://192.168.18.163/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
-          name: "worker-node3-bmc-secret"
+          name: "worker-node4-bmc-secret"
         bootMACAddress: "b4:96:91:c8:a5:14"
         bootMode: "UEFI"
         rootDeviceHints:
@@ -382,6 +382,84 @@ spec:
                   enabled: true
                   address:
                   - ip: 192.168.18.20
+                    prefix-length: 25
+                ipv6:
+                  enabled: false
+                  dhcp: false
+                  autoconf: false
+            dns-resolver:
+              config:
+                search:
+                - workload.bos2.lab
+                server:
+                - 192.168.18.9
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno12399
+                next-hop-address: 192.168.18.1
+                table-id: 254
+      - hostName: "worker-node5.workload.bos2.lab"
+        role: "worker"
+        bmcAddress: "idrac-virtualmedia://192.168.18.199/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "worker-node5-bmc-secret"
+        bootMACAddress: "30:3E:A7:04:E1:00"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: /dev/sdb
+        nodeNetwork:
+          interfaces:
+            - name: "eno12399"
+              macAddress: "30:3E:A7:04:E1:00"
+          config:
+            interfaces:
+              - name: "eno12399"
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                  - ip: 192.168.18.27
+                    prefix-length: 25
+                ipv6:
+                  enabled: false
+                  dhcp: false
+                  autoconf: false
+            dns-resolver:
+              config:
+                search:
+                - workload.bos2.lab
+                server:
+                - 192.168.18.9
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno12399
+                next-hop-address: 192.168.18.1
+                table-id: 254
+      - hostName: "worker-node6.workload.bos2.lab"
+        role: "worker"
+        bmcAddress: "idrac-virtualmedia://192.168.18.200/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "worker-node6-bmc-secret"
+        bootMACAddress: "30:3E:A7:04:F8:80"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: /dev/sdb
+        nodeNetwork:
+          interfaces:
+            - name: "eno12399"
+              macAddress: "30:3E:A7:04:F8:80"
+          config:
+            interfaces:
+              - name: "eno12399"
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                  - ip: 192.168.18.28
                     prefix-length: 25
                 ipv6:
                   enabled: false
