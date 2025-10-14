@@ -47,9 +47,8 @@ spec:
     serviceNetwork:
       - 172.30.0.0/16
     # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
-    apiVIP: 192.168.18.120
-    ingressVIP: 192.168.18.121
-    additionalNTPSources:
+    apiVIP: 192.168.18.73
+    ingressVIP: 192.168.18.76
       - pool.ntp.org
       - clock.corp.redhat.com
     # Initiates the cluster for workload partitioning. Setting specific reserved/isolated CPUSets is done via PolicyTemplate
@@ -83,7 +82,7 @@ spec:
                 ipv4:
                   enabled: true
                   address:
-                  - ip: 192.168.18.125
+                  - ip: 192.168.18.77
                     prefix-length: 25
             dns-resolver:
               config:
@@ -121,7 +120,7 @@ spec:
                   # For SNO sites with static IP addresses, the node-specific,
                   # API and Ingress IPs should all be the same and configured on
                   # the interface
-                  - ip: 192.168.18.126
+                  - ip: 192.168.18.78
                     prefix-length: 25
             dns-resolver:
               config:
@@ -162,7 +161,7 @@ spec:
                   # For SNO sites with static IP addresses, the node-specific,
                   # API and Ingress IPs should all be the same and configured on
                   # the interface
-                  - ip: 192.168.18.127
+                  - ip: 192.168.18.79
                     prefix-length: 25
             dns-resolver:
               config:
