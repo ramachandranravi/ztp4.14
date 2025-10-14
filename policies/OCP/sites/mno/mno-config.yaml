@@ -28,3 +28,21 @@ spec:
         name: worker-node3.workload.bos2.lab
         labels:
           node-role.kubernetes.io/standard: ""
+    - fileName: custom/LabelNode.yaml
+      policyName: config
+      metadata:
+        name: worker-node4.workload.bos2.lab
+        labels:
+          node-role.kubernetes.io/standard: ""
+    - fileName: custom/LabelNode.yaml
+      policyName: config
+      metadata:
+        name: worker-node5.workload.bos2.lab
+        labels:
+          node-role.kubernetes.io/standard: ""
+    - fileName: custom/LabelNode.yaml
+      policyName: config
+      metadata:
+        name: worker-node6.workload.bos2.lab
+        labels:
+          node-role.kubernetes.io/standard: ""
