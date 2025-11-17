@@ -22,7 +22,7 @@ generators:
 #- sno186-4-16-worker.yaml
 #- sno187-4-16-worker.yaml
 #- sno200-4-19-worker.yaml
-- example-sno.yaml
-#- compactcluster.yaml
+#- example-sno.yaml
+- compactcluster.yaml
 #- compactcluster-hpe.yaml
 #- sno180-4-18-worker-nmstate-nokia.yaml
