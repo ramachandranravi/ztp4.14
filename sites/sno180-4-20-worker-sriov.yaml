@@ -28,7 +28,7 @@ spec:
             - 99-cgroupsv1.yaml
     #        - 80-kubeapiserver-debug.yaml
     networkType: "OVNKubernetes"
-    installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"OperatorLifecycleManager\", \"marketplace\", \"Console\", \"Ingress\", \"NodeTuning\" ] }}"
+    #installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"OperatorLifecycleManager\", \"marketplace\", \"Console\", \"Ingress\", \"NodeTuning\" ] }}"
     clusterLabels:
         common: true
         sites: "sno180"
