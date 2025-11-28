@@ -33,7 +33,7 @@ spec:
         common: true
         sites: "sno180"
         group: "sno"
-        version: "OCP"
+        version: "OCP-sriov"
     clusterNetwork:
       - cidr: 10.128.0.0/14
         hostPrefix: 23

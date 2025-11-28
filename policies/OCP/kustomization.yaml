@@ -5,6 +5,7 @@ generators:
 - group/sno/group-sno.yaml
 - sites/sno163/sno163-config.yaml
 - sites/sno180/sno180-config.yaml
+- sites/sno180/sno180-sriov-config.yaml
 #- sites/sno180/sno180-network.yaml
 - sites/sno183/sno183-config.yaml
 - sites/sno185/sno185-config.yaml
