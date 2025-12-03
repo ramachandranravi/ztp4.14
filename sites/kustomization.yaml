@@ -28,4 +28,4 @@ generators:
 - compactcluster.yaml
 #- compactcluster-hpe.yaml
 #- sno180-4-18-worker-nmstate-nokia.yaml
-- sno180-4-20-worker-sriov.yaml
+#- sno180-4-20-worker-sriov.yaml
