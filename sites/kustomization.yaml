@@ -21,7 +21,7 @@ generators:
 #- sno184-4-18-worker.yaml
 #- sno185-4-16-worker.yaml
 #- sno185-4-18-worker.yaml
-- sno186-4-16-worker.yaml
+#- sno186-4-16-worker.yaml
 #- sno187-4-16-worker.yaml
 #- sno200-4-19-worker.yaml
 #- example-sno.yaml
