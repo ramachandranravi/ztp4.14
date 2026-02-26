@@ -3,16 +3,16 @@
 apiVersion: ran.openshift.io/v1
 kind: PolicyGenTemplate
 metadata:
-  name: "sno169-config"
+  name: "sno163-config"
   namespace: "ztp-site"
 spec:
   bindingRules:
-    sites: "sno169"
+    sites: "sno163"
     version: OCP
   sourceFiles:
     - fileName: custom/LabelNode.yaml
       policyName: config
       metadata:
-        name: sno169.workload.bos2.lab
+        name: sno163.workload.bos2.lab
         labels:
           node-role.kubernetes.io/standard: ""
