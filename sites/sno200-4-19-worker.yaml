@@ -23,13 +23,13 @@ spec:
             - 00-debug-networkmanager.yaml
             - 50-mcp-ht.yaml
             - 50-mcp-standard.yaml
-            - 76-enable-crun-master.yaml
-            - 77-enable-crun-standard.yaml
-            - 78-enable-crun-ht100gb.yaml
+            #- 76-enable-crun-master.yaml
+            #- 77-enable-crun-standard.yaml
+            #- 78-enable-crun-ht100gb.yaml
             - 80-kubeapiserver-debug.yaml
-            - 86-enable-crun-master.yaml
-            - 87-enable-crun-standard.yaml
-            - 88-enable-crun-ht100gb.yaml
+            - 86-enable-runc-master.yaml
+            - 87-enable-runc-standard.yaml
+            - 88-enable-runc-ht100gb.yaml
             - 99-cgroupsv1.yaml
     networkType: "OVNKubernetes"
     installConfigOverrides:  "{\"capabilities\":{\"baselineCapabilitySet\": \"None\", \"additionalEnabledCapabilities\": [ \"OperatorLifecycleManager\", \"marketplace\", \"Console\", \"Ingress\", \"NodeTuning\" ] }}"
