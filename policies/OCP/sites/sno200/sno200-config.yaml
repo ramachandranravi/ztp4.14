@@ -19,5 +19,3 @@ spec:
           node-role.kubernetes.io/standard: ""
     - fileName: custom/MastersSchedulable.yaml
       policyName: config
-      spec:
-        mastersSchedulable: false
