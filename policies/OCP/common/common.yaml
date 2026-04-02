@@ -6,7 +6,12 @@ metadata:
   namespace: ztp-common
 spec:
   bindingRules:
-    common: "false"
+    common: "true"
+namespaceSelector:
+    exclude:
+      - kube-*
+    include:
+      - '*'
   remediationAction: inform
   sourceFiles:
   # Installing different operators
