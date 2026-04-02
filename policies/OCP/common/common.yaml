@@ -7,11 +7,6 @@ metadata:
 spec:
   bindingRules:
     common: "true"
-  namespaceSelector:
-    exclude:
-      - kube-*
-    include:
-      - '*'
   remediationAction: inform
   sourceFiles:
   # Installing different operators
