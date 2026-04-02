@@ -6,7 +6,7 @@ metadata:
   namespace: ztp-common
 spec:
   bindingRules:
-    common: "true"
+    common: "false"
   remediationAction: inform
   sourceFiles:
   # Installing different operators
