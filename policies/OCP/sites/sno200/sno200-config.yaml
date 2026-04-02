@@ -6,6 +6,7 @@ metadata:
   name: "sno200-config"
   namespace: "ztp-site"
 spec:
+  remediationAction: enforce
   bindingRules:
     sites: "sno200"
     version: OCP
@@ -16,3 +17,7 @@ spec:
         name: sno200.workload.bos2.lab
         labels:
           node-role.kubernetes.io/standard: ""
+    - fileName: custom/MastersSchedulable.yaml
+      policyName: config
+      spec:
+        mastersSchedulable: false
