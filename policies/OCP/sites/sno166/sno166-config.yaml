@@ -22,7 +22,7 @@ spec:
       metadata:
         name: final-secret
         namespace: spoke-logging-creds
-      # Directly define the data keys to be patched into the base file
-      data:
-        AWS_ACCESS_KEY_ID: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_ACCESS_KEY_ID") | default "" }}'
-        AWS_SECRET_ACCESS_KEY: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_SECRET_ACCESS_KEY") | default "" }}' | autoindent }}'
+      spec:
+        data:
+          AWS_ACCESS_KEY_ID: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_ACCESS_KEY_ID") | default "" | autoindent }}'
+          AWS_SECRET_ACCESS_KEY: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_SECRET_ACCESS_KEY") | default "" | autoindent }}'
