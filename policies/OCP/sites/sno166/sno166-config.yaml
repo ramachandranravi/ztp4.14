@@ -22,7 +22,7 @@ spec:
       metadata:
         name: final-secret
         namespace: spoke-logging-creds
-      spec:
-        data:
-          AWS_ACCESS_KEY_ID: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_ACCESS_KEY_ID") | default "" | autoindent }}'
-          AWS_SECRET_ACCESS_KEY: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_SECRET_ACCESS_KEY") | default "" | autoindent }}'
+      # Remove 'spec:' here
+      data: # Shifted to the left
+        AWS_ACCESS_KEY_ID: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_ACCESS_KEY_ID") | default "" | autoindent }}'
+        AWS_SECRET_ACCESS_KEY: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_SECRET_ACCESS_KEY") | default "" | autoindent }}'
