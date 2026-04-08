@@ -6,6 +6,7 @@ metadata:
   name: "sno166-config"
   namespace: "ztp-site"
 spec:
+  remediationAction: enforce
   bindingRules:
     sites: "sno166"
     version: OCP
