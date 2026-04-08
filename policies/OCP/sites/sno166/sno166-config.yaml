@@ -19,14 +19,10 @@ spec:
           node-role.kubernetes.io/standard: ""
     - fileName: custom/CustomSecret.yaml
       policyName: "local-secret-copy"
-      spec: 
-        apiVersion: v1
-        kind: Secret
-        metadata:
-          name: final-secret
-          namespace: spoke-logging-creds
-        type: Opaque
-        data:
-          # Adding | autoindent ensures the string aligns if it's long
-          AWS_ACCESS_KEY_ID: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_ACCESS_KEY_ID") | default "" | autoindent }}'
-          AWS_SECRET_ACCESS_KEY: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_SECRET_ACCESS_KEY") | default "" | autoindent }}'
+      metadata:
+        name: final-secret
+        namespace: spoke-logging-creds
+      # Directly define the data keys to be patched into the base file
+      data:
+        AWS_ACCESS_KEY_ID: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_ACCESS_KEY_ID") | default "" }}'
+        AWS_SECRET_ACCESS_KEY: '{{ (fromSecret "spoke-storage-creds" "loki-bucket-odf" "AWS_SECRET_ACCESS_KEY") | default "" }}' | autoindent }}'
